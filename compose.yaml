@@ -1,7 +1,18 @@
 services:
-  golang:
-    container_name: golang
-    image: golang:1.0.0
+  frontend:
+    container_name: frontend
+    image: frontend:1.0.0
+    build:
+      context: "./frontend"
+      dockerfile: next.dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    image: backend:1.0.0
     build:
       context: ./backend
       dockerfile: go.dockerfile
