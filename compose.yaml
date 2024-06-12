@@ -1,0 +1,25 @@
+services:
+  golang:
+    container_name: golang
+    image: golang:1.0.0
+    build:
+      context: ./backend
+      dockerfile: go.dockerfile
+    environment:
+      POSTGRES_URL: "postgres://todo:123456@db/todo?sslmode=disable"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:16.3-alpine3.20
+    environment:
+      POSTGRES_USER: todo
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: todo
+    volumes:
+      - todo:/var/lib/postgresql/data
+
+volumes:
+  todo: {}
