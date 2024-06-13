@@ -1,6 +1,6 @@
 # REAL FULLSTACK TODO TEMPLATE
 
-## Technology Architecture Stack
+### Technology Architecture Stack
 
 1. [Docker](https://www.docker.com/)
 2. [Golang](https://go.dev/)
@@ -15,3 +15,25 @@
 - [Daisyui](https://daisyui.com/): The most popular component library for Tailwind CSS
 
 5. [Bun](https://bun.sh/)
+
+### Run the Application
+
+```bash
+docker compose up --build -d
+```
+
+### Backend API
+
+```bash
+http GET  "http:localhost:8000/todos"
+```
+
+### Frontend
+
+Use Your favorite browser and Open the web page [TODO]("http://localhost:3000").
+
+### Shut down the Application
+
+```bash
+docker compose down
+```
